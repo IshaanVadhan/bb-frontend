@@ -33,7 +33,7 @@ const Home = () => {
           and then solve the bugs created by other team in other half.
         </p>
         {/* <button className="homeBtn">Get Started</button> */}
-        <Link to="/login" className="homeBtn">
+        <Link to="/register" className="homeBtn">
           Get Started
         </Link>
       </div>
