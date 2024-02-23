@@ -10,7 +10,7 @@ const CreateBug = () => {
   const [exOutput, setExOutput] = useState("");
   const [result, setResult] = useState("");
   const user = JSON.parse(localStorage.getItem("user"));
-  const questionId = user.questionId;
+  const roomId = user.roomId;
   const handleChange = (event) => {
     setCode(event.target.value);
   };
@@ -22,9 +22,9 @@ const CreateBug = () => {
   const submitBug = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("https://bug-battle-backend.onrender.com/bugs/create", {
+      const response = await axios.post("http://localhost:4000/bugs/create", {
         submittedBy: user._id,
-        questionId: questionId,
+        roomId: roomId,
         buggedCode: code,
       });
       localStorage.setItem("bug", JSON.stringify(response.data));
@@ -39,7 +39,7 @@ const CreateBug = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://bug-battle-backend.onrender.com/questions/get?questionId=${questionId}`
+          `http://localhost:4000/questions/get?roomId=${roomId}`
         );
         setCode(response.data.code);
         setLanguage(response?.data.language);
@@ -91,7 +91,7 @@ const CreateBug = () => {
     if (compileCount < 5) {
       const data = { code: code, lang: language };
       axios
-        .post("https://bug-battle-backend.onrender.com/compile", data)
+        .post("http://localhost:4000/compile", data)
         .then(function (response) {
           console.log("response: ", response);
           if (response?.data?.output || response?.data?.output === "") {

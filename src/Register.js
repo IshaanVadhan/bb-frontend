@@ -10,14 +10,14 @@ const Register = () => {
     member2Name: "",
     member3Name: "",
     password: "",
-    questionId: "",
+    roomId: "",
   });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://bug-battle-backend.onrender.com/users/register",
+        "http://localhost:4000/users/register",
         formData
       );
       console.log(response.data);
@@ -101,9 +101,9 @@ const Register = () => {
               <label className="label">Room ID</label>
               <input
                 type="text"
-                name="questionId"
+                name="roomId"
                 placeholder="Enter Room ID"
-                value={formData.questionId}
+                value={formData.roomId}
                 onChange={handleChange}
               ></input>
             </div>
@@ -117,7 +117,7 @@ const Register = () => {
                 onChange={handleChange}
               ></input>
             </div>
-            {/* <input type="hidden" name="qID" value={formData.questionId}></input> */}
+            {/* <input type="hidden" name="qID" value={formData.roomId}></input> */}
             <button type="submit" className="btn">
               REGISTER
             </button>

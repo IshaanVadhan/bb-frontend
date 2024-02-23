@@ -16,7 +16,7 @@ const QuestionForm = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://bug-battle-backend.onrender.com/questions/create",
+        "http://localhost:4000/questions/create",
         formData
       );
       console.log(response.data);
@@ -27,18 +27,20 @@ const QuestionForm = () => {
   };
   return (
     <div className="container">
-      <h1 className="header">Question Form</h1>
       <form className="form1" onSubmit={handleSubmit}>
+        <h1 className="formTitle">Question Form</h1>
         <div className="field">
           <div>
             <label className="label">Language</label>
-            <input
-              type="text"
+            <select
               name="language"
-              placeholder="Java/cpp/python"
               value={formData.language}
               onChange={handleChange}
-            ></input>
+            >
+              <option value="java">Java</option>
+              <option value="cpp">C++</option>
+              <option value="python">Python</option>
+            </select>
           </div>
           <div>
             <label className="label">Code</label>

@@ -6,7 +6,7 @@ const Waiting = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user._id;
-  const questionId = user.questionId;
+  const roomId = user.roomId;
 
   // useEffect(() => {
   //   localStorage.removeItem("bugSec");
@@ -16,9 +16,9 @@ const Waiting = () => {
   const handleClick = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.get("https://bug-battle-backend.onrender.com/bugs/get", {
+      const response = await axios.get("http://localhost:4000/bugs/get", {
         params: {
-          questionId: questionId,
+          roomId: roomId,
           submittedBy: userId,
         },
       });

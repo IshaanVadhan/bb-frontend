@@ -16,7 +16,7 @@ const Login = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://bug-battle-backend.onrender.com/users/login",
+        "http://localhost:4000/users/login",
         formData
       );
       localStorage.setItem("user", JSON.stringify(response.data));

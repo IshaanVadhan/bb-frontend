@@ -17,7 +17,7 @@ const Solution = () => {
 
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user?._id;
-  const questionId = user?.questionId;
+  const roomId = user?.roomId;
   const handleChange = (event) => {
     setCode(event.target.value);
   };
@@ -32,10 +32,10 @@ const Solution = () => {
     try {
       console.log();
       const response = await axios.post(
-        "https://bug-battle-backend.onrender.com/solutions/create",
+        "http://localhost:4000/solutions/create",
         {
           submittedBy: userId,
-          questionId: questionId,
+          roomId: roomId,
           bugId: bugId,
           solutionCode: code,
         }
@@ -87,7 +87,7 @@ const Solution = () => {
     if (compileCount < 5) {
       const data = { code: code, lang: language };
       axios
-        .post("https://bug-battle-backend.onrender.com/compile", data)
+        .post("http://localhost:4000/compile", data)
         .then(function (response) {
           console.log("response: ", response);
           if (response?.data?.output || response?.data?.output === "") {
@@ -114,10 +114,10 @@ const Solution = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        //console.log(questionId+" "+userId)
-        const response = await axios.get("https://bug-battle-backend.onrender.com/bugs/get", {
+        //console.log(roomId+" "+userId)
+        const response = await axios.get("http://localhost:4000/bugs/get", {
           params: {
-            questionId: questionId,
+            roomId: roomId,
             submittedBy: userId,
           },
         });
