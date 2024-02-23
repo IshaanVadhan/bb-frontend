@@ -59,7 +59,7 @@ const CreateBug = () => {
     fetchData();
   }, []);
 
-  var minutes = 10; //5
+  var minutes = 5; //5
   const [seconds, setSeconds] = useState(
     parseInt(localStorage.getItem("bugSec")) || minutes * 60
   );
