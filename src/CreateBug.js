@@ -23,7 +23,7 @@ const CreateBug = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://bb-backend-m1xa.onrender.com//bugs/create",
+        "https://bb-backend-m1xa.onrender.com/bugs/create",
         {
           submittedBy: user._id,
           roomId: roomId,
@@ -42,7 +42,7 @@ const CreateBug = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://bb-backend-m1xa.onrender.com//questions/get?roomId=${roomId}`
+          `https://bb-backend-m1xa.onrender.com/questions/get?roomId=${roomId}`
         );
         setCode(response.data.code);
         setLanguage(response?.data.language);
@@ -94,7 +94,7 @@ const CreateBug = () => {
     if (compileCount < 5) {
       const data = { code: code, lang: language };
       axios
-        .post("https://bb-backend-m1xa.onrender.com//compile", data)
+        .post("https://bb-backend-m1xa.onrender.com/compile", data)
         .then(function (response) {
           console.log("response: ", response);
           if (response?.data?.output || response?.data?.output === "") {

@@ -16,7 +16,7 @@ const QuestionForm = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://bb-backend-m1xa.onrender.com//questions/create",
+        "https://bb-backend-m1xa.onrender.com/questions/create",
         formData
       );
       console.log(response.data);

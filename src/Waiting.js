@@ -17,7 +17,7 @@ const Waiting = () => {
     event.preventDefault();
     try {
       const response = await axios.get(
-        "https://bb-backend-m1xa.onrender.com//bugs/get",
+        "https://bb-backend-m1xa.onrender.com/bugs/get",
         {
           params: {
             roomId: roomId,

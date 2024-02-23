@@ -32,7 +32,7 @@ const Solution = () => {
     try {
       console.log();
       const response = await axios.post(
-        "https://bb-backend-m1xa.onrender.com//solutions/create",
+        "https://bb-backend-m1xa.onrender.com/solutions/create",
         {
           submittedBy: userId,
           roomId: roomId,
@@ -87,7 +87,7 @@ const Solution = () => {
     if (compileCount < 5) {
       const data = { code: code, lang: language };
       axios
-        .post("https://bb-backend-m1xa.onrender.com//compile", data)
+        .post("https://bb-backend-m1xa.onrender.com/compile", data)
         .then(function (response) {
           console.log("response: ", response);
           if (response?.data?.output || response?.data?.output === "") {
@@ -116,7 +116,7 @@ const Solution = () => {
       try {
         //console.log(roomId+" "+userId)
         const response = await axios.get(
-          "https://bb-backend-m1xa.onrender.com//bugs/get",
+          "https://bb-backend-m1xa.onrender.com/bugs/get",
           {
             params: {
               roomId: roomId,

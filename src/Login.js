@@ -16,7 +16,7 @@ const Login = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://bb-backend-m1xa.onrender.com//users/login",
+        "https://bb-backend-m1xa.onrender.com/users/login",
         formData
       );
       localStorage.setItem("user", JSON.stringify(response.data));
