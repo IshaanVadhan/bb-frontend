@@ -16,12 +16,15 @@ const Waiting = () => {
   const handleClick = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.get("http://localhost:4000/bugs/get", {
-        params: {
-          roomId: roomId,
-          submittedBy: userId,
-        },
-      });
+      const response = await axios.get(
+        "https://bb-backend-m1xa.onrender.com//bugs/get",
+        {
+          params: {
+            roomId: roomId,
+            submittedBy: userId,
+          },
+        }
+      );
       console.log(response.data);
       navigate("/solution");
     } catch (error) {

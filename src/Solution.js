@@ -32,7 +32,7 @@ const Solution = () => {
     try {
       console.log();
       const response = await axios.post(
-        "http://localhost:4000/solutions/create",
+        "https://bb-backend-m1xa.onrender.com//solutions/create",
         {
           submittedBy: userId,
           roomId: roomId,
@@ -87,7 +87,7 @@ const Solution = () => {
     if (compileCount < 5) {
       const data = { code: code, lang: language };
       axios
-        .post("http://localhost:4000/compile", data)
+        .post("https://bb-backend-m1xa.onrender.com//compile", data)
         .then(function (response) {
           console.log("response: ", response);
           if (response?.data?.output || response?.data?.output === "") {
@@ -115,12 +115,15 @@ const Solution = () => {
     const fetchData = async () => {
       try {
         //console.log(roomId+" "+userId)
-        const response = await axios.get("http://localhost:4000/bugs/get", {
-          params: {
-            roomId: roomId,
-            submittedBy: userId,
-          },
-        });
+        const response = await axios.get(
+          "https://bb-backend-m1xa.onrender.com//bugs/get",
+          {
+            params: {
+              roomId: roomId,
+              submittedBy: userId,
+            },
+          }
+        );
         //console.log(response.data.buggedCode)
         setCode(response.data.buggedCode);
         localStorage.setItem("bug", JSON.stringify(response.data));
