@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./style/forms.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

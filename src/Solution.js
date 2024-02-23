@@ -6,13 +6,9 @@ const Solution = () => {
   const buttonRef = useRef(null);
   const navigate = useNavigate();
   const [code, setCode] = useState("");
-  const [language, setLanguage] = useState(
-    localStorage.getItem("language") || "python"
-  );
-  const [exInput, setExInput] = useState(localStorage.getItem("exInput") || "");
-  const [exOutput, setExOutput] = useState(
-    localStorage.getItem("exOutput") || ""
-  );
+  const [language] = useState(localStorage.getItem("language") || "python");
+  const [exInput] = useState(localStorage.getItem("exInput") || "");
+  const [exOutput] = useState(localStorage.getItem("exOutput") || "");
   const [result, setResult] = useState("");
 
   const user = JSON.parse(localStorage.getItem("user"));
@@ -87,7 +83,7 @@ const Solution = () => {
     if (compileCount < 5) {
       const data = { code: code, lang: language };
       axios
-        .post("https://bb-backend-m1xa.onrender.com/compile", data)
+        .post("http://localhost:4000/compile", data)
         .then(function (response) {
           console.log("response: ", response);
           if (response?.data?.output || response?.data?.output === "") {

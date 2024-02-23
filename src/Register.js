@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./style/forms.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     leaderName: "",
     leaderEmail: "",
@@ -22,6 +25,7 @@ const Register = () => {
       );
       console.log(response.data);
       alert("User created");
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
