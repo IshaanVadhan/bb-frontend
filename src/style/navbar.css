@@ -230,7 +230,6 @@ body {
   width: fit-content;
 }
 .content .homeBtn {
-  margin-left: 10px;
   background-color: rgb(135, 21, 21);
   border: none;
   border-radius: 5px;
@@ -238,13 +237,14 @@ body {
   cursor: pointer;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   padding: 0.8rem 1.2rem;
   text-transform: uppercase;
   transition: all 0.3s ease;
   outline: none;
   shape-outside: #fff;
   border: 2px;
+  text-decoration: none;
 }
 
 footer {
