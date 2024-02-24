@@ -94,7 +94,7 @@ const CreateBug = () => {
     if (compileCount < 5) {
       const data = { code: code, lang: language };
       axios
-        .post("http://localhost:4000/compile", data)
+        .post("https://bb-backend-m1xa.onrender.com/compile", data)
         .then(function (response) {
           console.log("response: ", response);
           if (response?.data?.output || response?.data?.output === "") {
